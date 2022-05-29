@@ -1,0 +1,21 @@
+<div class="main-container">
+  <div class="filters-container">
+    <div class="filters-section">
+      <app-input class="filter-input" (sendAction)="brandValueChanged($event)" valueA="Marka"></app-input>
+      <app-input class="filter-input" (sendAction)="priceToValueChanged($event)" valueA="Cena do"></app-input>
+    </div>
+
+    <button class="blue-btn search-btn" (click)="searchCars()">Szukaj</button>
+  </div>
+
+  <div class="cards-container">
+    <ng-container *ngIf="cars">
+      <app-car-card class="car-card"
+                    *ngFor="let car of cars"
+                    [model]="car.model"
+                    [brand]="car.brand"
+                    [imgSrc]="car.imgSrc"
+      ></app-car-card>
+    </ng-container>
+  </div>
+</div>
